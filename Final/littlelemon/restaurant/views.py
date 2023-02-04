@@ -12,12 +12,14 @@ def index(request):
 class Menuitemview(generics.ListCreateAPIView):
     queryset=Menu.objects.all()
     serializer_class=Menuserializer
+    permission_classes=[IsAuthenticated]
 class singlemenuitemview(generics.RetrieveDestroyAPIView):
     queryset=Menu.objects.all()
     serializer_class=Menuserializer
 class Bookingviewset(viewsets.ModelViewSet):
     queryset=Booking.objects.all()
     serializer_class=Bookingserializer
+    permission_classes=[IsAuthenticated]
 class Userviewset(viewsets.ModelViewSet):
     queryset=User.objects.all()
     serializer_class=Userserializer
